@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Bibliotheque {
     private String nom;
-    private List<Livre> livres;
+    private ArrayList<Livre> livres;
 
     // Constructeur
     public Bibliotheque(String nom) {
@@ -11,12 +10,12 @@ public class Bibliotheque {
         this.livres = new ArrayList<>();
     }
 
-    // Méthode pour ajouter un livre à la bibliothèque
+    // ajouter un livre à la bibliotheque
     public void ajouterLivre(Livre livre) {
         livres.add(livre);
     }
 
-    // Méthode pour chercher l'existence d'un livre dans la bibliothèque
+    //chercher l'existence d'un livre dans la bibliotheque
     public boolean contientLivre(String titre) {
         for (Livre livre : livres) {
             if (livre.getTitre().equalsIgnoreCase(titre)) {
@@ -26,7 +25,7 @@ public class Bibliotheque {
         return false;
     }
 
-    // Méthode pour afficher les livres d'un certain auteur
+    //afficher les livres d'un certain auteur
     public void afficherLivresParAuteur(String nomAuteur) {
         for (Livre livre : livres) {
             for (Auteur auteur : livre.getAuteurs()) {
@@ -38,17 +37,17 @@ public class Bibliotheque {
         }
     }
 
-    // Getter pour le nom de la bibliothèque
+    //pour le nom de la bibliotheque
     public String getNom() {
         return nom;
     }
 
-    // Setter pour le nom de la bibliothèque
+    //pour le nom de la bibliotheque
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    // Méthode pour afficher tous les livres de la bibliothèque
+    //afficher tous les livres de la bibliotheque
     public void afficherTousLesLivres() {
         for (Livre livre : livres) {
             System.out.println(livre);

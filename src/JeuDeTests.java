@@ -27,6 +27,12 @@ public class JeuDeTests {
         Personnage personnage1 = new Personnage("Le Petit Prince", "Un jeune prince venu d'une autre planète");
         Personnage personnage2 = new Personnage("Le Renard", "Un renard sage qui apprend au Petit Prince des leçons de vie");
         
+        // Ajout de pouvoirs magiques aux personnages
+        personnage1.ajouterPouvoirMagique("Invisibilité");
+        personnage1.ajouterPouvoirMagique("Téléportation");
+        
+        personnage2.ajouterPouvoirMagique("Guérison");
+        
         // Affichage des informations des personnages
         System.out.println(personnage1.toString());
         System.out.println(personnage2.toString());
@@ -75,5 +81,9 @@ public class JeuDeTests {
         // Affichage de tous les livres de la bibliothèque
         System.out.println("Tous les livres de la bibliothèque :");
         bibliotheque.afficherTousLesLivres();
+        
+        // Vérification des pouvoirs magiques des personnages
+        System.out.println("Le personnage 'Le Prince' a-t-il le pouvoir 'Invisibilité' ? " + personnage1.aPouvoirMagique("Invisibilité"));
+        System.out.println("Le personnage 'Renard' a-t-il le pouvoir 'Téléportation' ? " + personnage2.aPouvoirMagique("Téléportation"));
     }
 }

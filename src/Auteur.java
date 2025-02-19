@@ -1,11 +1,11 @@
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Auteur {
     private String nom;
     private String prenom;
     private String languePrincipale;
-    private List<Livre> livres;
+    private ArrayList<Livre> livres; // liste des livres ecrits par l'auteur
 
     public Auteur(String nom, String prenom, String languePrincipale) {
         this.nom = nom;
@@ -26,7 +26,7 @@ public class Auteur {
         return languePrincipale;
     }
 
-    public List<Livre> getLivres() {
+    public ArrayList<Livre> getLivres() {
         return new ArrayList<>(livres);
     }
 
@@ -34,7 +34,7 @@ public class Auteur {
         livres.add(livre);
     }
 
-    @Override
+    
     public String toString() {
         return prenom + " " + nom + " (" + languePrincipale + ")";
     }

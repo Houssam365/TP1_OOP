@@ -13,9 +13,10 @@ class Livre {
         this.auteurs = new ArrayList<>(auteurs);
         this.anneePremiereParution = anneePremiereParution;
         this.personnages = new ArrayList<>();
+
         for (Auteur auteur : auteurs) {
             auteur.ajouterLivre(this);
-        }
+        }//ajouter le livre a la liste des livres de chaque auteur
     }
 
     // Getters
@@ -51,23 +52,27 @@ class Livre {
         System.out.println("------------------------------------------------------------------");
         System.out.println("Titre: " + titre);
         System.out.println("Auteurs: ");
+
         for (Auteur auteur : auteurs) {
             System.out.println(auteur);
-        }
+        }//afficher les auteurs
+
         System.out.println("Année de première parution: " + anneePremiereParution);
         System.out.println("Personnages:");
+
         for (Personnage personnage : personnages) {
             System.out.println(personnage);
-        }
+        }//afficher les personnages
+        
         System.out.println("------------------------------------------------------------------");
     }
 
-    // Méthode pour ajouter un personnage
+    //pour ajouter un personnage
     public void ajouterPersonnage(Personnage unPersonnage){
         personnages.add(unPersonnage);
     }
 
-    // Méthode pour vérifier si un personnage existe
+    //pour verifier si un personnage existe
     public boolean contientPersonnage(String nom){
         for (Personnage personnage : personnages) {
             if (personnage.getNom().equalsIgnoreCase(nom)) {
@@ -78,6 +83,7 @@ class Livre {
     }
 
     public String toString(){
+
         StringBuilder auteursStr = new StringBuilder();
         for (Auteur auteur : auteurs) {
             auteursStr.append(auteur).append(", ");
