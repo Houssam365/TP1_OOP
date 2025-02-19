@@ -11,12 +11,12 @@ public class Bibliotheque {
         this.livres = new ArrayList<>();
     }
 
-    // pour ajouter un livre à la bibliothèque
+    // Méthode pour ajouter un livre à la bibliothèque
     public void ajouterLivre(Livre livre) {
         livres.add(livre);
     }
 
-    // pour chercher l'existence d'un livre dans la bibliothèque
+    // Méthode pour chercher l'existence d'un livre dans la bibliothèque
     public boolean contientLivre(String titre) {
         for (Livre livre : livres) {
             if (livre.getTitre().equalsIgnoreCase(titre)) {
@@ -26,11 +26,14 @@ public class Bibliotheque {
         return false;
     }
 
-    // pour afficher les livres d'un certain auteur
-    public void afficherLivresParAuteur(String auteur) {
+    // Méthode pour afficher les livres d'un certain auteur
+    public void afficherLivresParAuteur(String nomAuteur) {
         for (Livre livre : livres) {
-            if (livre.getAuteur().equalsIgnoreCase(auteur)) {
-                System.out.println(livre);
+            for (Auteur auteur : livre.getAuteurs()) {
+                if (auteur.getNom().equalsIgnoreCase(nomAuteur)) {
+                    System.out.println(livre);
+                    break;
+                }
             }
         }
     }
@@ -45,7 +48,7 @@ public class Bibliotheque {
         this.nom = nom;
     }
 
-    // pour afficher tous les livres de la bibliothèque
+    // Méthode pour afficher tous les livres de la bibliothèque
     public void afficherTousLesLivres() {
         for (Livre livre : livres) {
             System.out.println(livre);

@@ -1,8 +1,15 @@
+import java.util.Arrays;
+
 public class JeuDeTests {
     public static void main(String[] args) {
-        // Création d'un livre
-        Livre livre1 = new Livre("Le Petit Prince", "Antoine de Saint-Exupéry", 1943);
-        Livre livre2 = new Livre("1984", "George Orwell", 1949);
+        // Création des auteurs
+        Auteur auteur1 = new Auteur("Saint-Exupéry", "Antoine", "Français");
+        Auteur auteur2 = new Auteur("Orwell", "George", "Anglais");
+        Auteur coAuteur = new Auteur("Co-Auteur", "Nom", "Français");
+
+        // Création d'un livre avec plusieurs auteurs
+        Livre livre1 = new Livre("Le Petit Prince", Arrays.asList(auteur1, coAuteur), 1943);
+        Livre livre2 = new Livre("1984", Arrays.asList(auteur2), 1949);
         
         // Affichage des informations des livres
         System.out.println(livre1.toString());
@@ -10,7 +17,7 @@ public class JeuDeTests {
         
         // Modification des attributs du livre
         livre1.setTitre("Le Petit Prince (Edition Révisée)");
-        livre1.setAuteur("A. de Saint-Exupéry");
+        livre1.setAuteurs(Arrays.asList(auteur1, coAuteur));
         livre1.setAnneePremiereParution(1945);
         
         // Affichage des informations modifiées du livre
@@ -59,11 +66,11 @@ public class JeuDeTests {
         System.out.println("La bibliothèque contient-elle le livre '1984' ? " + bibliotheque.contientLivre("1984"));
         
         // Affichage des livres d'un certain auteur
-        System.out.println("Livres de l'auteur 'A. de Saint-Exupéry' :");
-        bibliotheque.afficherLivresParAuteur("A. de Saint-Exupéry");
+        System.out.println("Livres de l'auteur 'Saint-Exupéry' :");
+        bibliotheque.afficherLivresParAuteur("Saint-Exupéry");
         
-        System.out.println("Livres de l'auteur 'George Orwell' :");
-        bibliotheque.afficherLivresParAuteur("George Orwell");
+        System.out.println("Livres de l'auteur 'Orwell' :");
+        bibliotheque.afficherLivresParAuteur("Orwell");
         
         // Affichage de tous les livres de la bibliothèque
         System.out.println("Tous les livres de la bibliothèque :");
