@@ -1,13 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Livre {
     String titre;
     String auteur;
     int anneePremiereParution;
+    List<Personnage> personnages; 
 
     
     public Livre(String titre, String auteur, int anneePremiereParution) {
         this.titre = titre;
         this.auteur = auteur;
         this.anneePremiereParution = anneePremiereParution;
+        this.personnages = new ArrayList<>();
     }
 
     
@@ -45,11 +50,16 @@ class Livre {
     }
 
     public void ajouterPersonnage(Personnage unPersonnage){
-        
+        personnages.add(unPersonnage);
     }
 
     public boolean contientPersonnage(String nom){
-        return true;
+        for (Personnage personnage : personnages) {
+            if (personnage.getNom().equalsIgnoreCase(nom)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String toString(){
